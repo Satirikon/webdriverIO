@@ -28,10 +28,6 @@ class SearchPage extends page {
     get noRoomsHotels() {return $$('div.fe_banner__sr_soldout_property');}
     get availableRoomsHotels() {return $$('div.roomrow');}
     
-    textOf(item){
-      return item.getText();
-    }
-    
     getLength(item){
         return item.length;
     }

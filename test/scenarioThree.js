@@ -5,25 +5,17 @@ describe('Booking.com case three', () => {
 
     it('Resulting search entries are taken based on filter', async () => {
         
-        let checkData = 'Valetta';
+        let checkData = 'Валетта';
         mainPage.startFromSearchPage(checkData);
         searchPage.clickOn(searchPage.starsRate);
         let itemsCount = searchPage.getLength(searchPage.listOfHotels);
         //need timeout
-        //browser.pause(4000);
-        //let result = async () => await new Promise(resolve => setTimeout(resolve, 4000));
-        let result = await setTimeout(() => {
-            let counterStars = searchPage.getLength(searchPage.hotelsWithStars);
-            let counterUserRate = searchPage.getLength(searchPage.hotelsWithUserRate);
-          console.log('settimeout time'+Date.now);
-            return counterStars + counterUserRate;
-        }, 4000);
-        console.log(itemsCount);
-        console.log(result);
-        console.log('current time'+Date.now);
+        browser.pause(5000);
+        let counterStars = searchPage.getLength(searchPage.hotelsWithStars);
+        let counterUserRate = searchPage.getLength(searchPage.hotelsWithUserRate);
         
         //each hotel has chosen number of stars
-        expect(result).toEqual(itemsCount)
+        expect(counterStars+counterUserRate).toEqual(itemsCount)
     })
 
     it('Each hotel has rating corresponding to chosen',()=>{

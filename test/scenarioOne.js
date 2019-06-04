@@ -1,8 +1,7 @@
 let mainPage = require('../pageobjects/main');
 
 describe('Booking.com case one', () => {
-    mainPage.open('https://booking.com/');
-
+   mainPage.open('https://booking.com/');
 
     it('User is able to specify age of each child', () => {
         mainPage.clickOn(mainPage.usersCountMenu);

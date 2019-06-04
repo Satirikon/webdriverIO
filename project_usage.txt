@@ -1,6 +1,6 @@
 1)Run "npm test" command
-2) Check test_results.txt file
+2) Run "allure serve allure-results" to see test results
 
-Specifications located in .\test\specs
-Page Objects located in .\test\pageobjects
-Test configuration located in .\wdio.conf.js
+Specifications located in ./test/specs
+Page Objects located in ./test/pageobjects
+Test configuration located in ./wdio.conf.js

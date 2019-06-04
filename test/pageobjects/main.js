@@ -11,10 +11,6 @@ class MainPage extends page {
     //case 4
     get cityPostcard() {return  $$('div.promotion-postcard__small')[1];}
     
-    textOf(item){
-      return item.getText();
-    }
-    
      // case 3 preconditions
      startFromSearchPage(checkData){
         this.open('https://booking.com/');

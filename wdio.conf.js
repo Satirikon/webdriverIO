@@ -8,9 +8,6 @@ exports.config = {
     // on a remote machine).
     runner: 'local',
     //
-    // Override default path ('/wd/hub') for chromedriver service.
-    path: '/',
-    //
     // ==================
     // Specify Test Files
     // ==================
@@ -34,6 +31,7 @@ exports.config = {
     // time. Depending on the number of capabilities, WebdriverIO launches several test
     // sessions. Within your capabilities you can overwrite the spec and exclude options in
     // order to group specific specs to a specific capability.
+    //
     // First, you can define how many instances should be started at the same time. Let's
     // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have
     // set maxInstances to 1; wdio will spawn 3 processes. Therefore, if you have 10 spec
@@ -41,7 +39,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -53,16 +51,14 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox'
-        // chromeOptions: {
-        //     prefs: {
-        //         'intl.accept_languages': 'en,US'
-        //     }
-        // },
-        // browserName: 'firefox',
-        // specs: [
-        //     './test/firefox/*.js'
-        // ],
+        browserName: 'firefox',
+        "moz:firefoxOptions": {
+            prefs: {
+            "intl.accept_languages": "ru"
+            }
+        },
+        //browserName: 'chrome',
+        //browserName: 'chrome'
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -76,7 +72,6 @@ exports.config = {
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
-    outputDir: './test_results',
     //
     // Set specific log levels per logger
     // loggers:
@@ -116,7 +111,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['selenium-standalone'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -132,10 +127,15 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['allure'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
     
     //
-    // Options to be passed to Jasmine.
+    // Options to be passed to Mocha.
+    // See the full list at http://mochajs.org/
     jasmineNodeOpts: {
         //
         // Jasmine default timeout
@@ -148,7 +148,6 @@ exports.config = {
             // do something
         }
     },
-    
     //
     // =====
     // Hooks

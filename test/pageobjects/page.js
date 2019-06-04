@@ -10,6 +10,10 @@ class Page {
     open(path) {
         browser.url(path);
     }
+    
+    textOf(item){
+        return item.getText();
+      }
 }
 
 module.exports = Page;

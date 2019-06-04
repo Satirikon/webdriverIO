@@ -2,9 +2,10 @@ let mainPage = require('../pageobjects/main');
 let searchPage = require('../pageobjects/search');
 
 describe('Booking.com case four', () => {
-    mainPage.open('https://booking.com/');
-
+  mainPage.open('https://booking.com/');
+  
     it('Price & calendar visibility', () => {
+      browser.pause(3000);
       mainPage.clickOn(mainPage.cityPostcard);
       let isCorrectPage = browser.getTitle().includes('Book your hotel now!');
       let isPriceVisible = searchPage.getLength(searchPage.PriceField) ? 1 : 0;
