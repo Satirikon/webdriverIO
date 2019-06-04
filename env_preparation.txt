@@ -1,0 +1,8 @@
+1) Node.js and npm setup
+npm is distributed with Node.js- which means that when you download Node.js, 
+you automatically get npm installed on your computer.
+Download and install from http://nodejs.org/
+2)Open terminal(cmd for windows) and go to the project folder with:
+cd \project_path
+3) Run "npm install" command to check dependencies
+ Preparation completed

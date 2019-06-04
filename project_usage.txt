@@ -1,0 +1,6 @@
+1)Run "npm test" command
+2) Check test_results.txt file
+
+Specifications located in .\test\specs
+Page Objects located in .\test\pageobjects
+Test configuration located in .\wdio.conf.js
