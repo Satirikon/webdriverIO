@@ -5,11 +5,13 @@ describe('Booking.com case four', () => {
   mainPage.open('https://booking.com/');
   
     it('Price & calendar visibility', () => {
-      browser.pause(3000);
+      let waiter = mainPage.cityPostcard;
+      waiter.waitForExist(3000);
+      
       mainPage.clickOn(mainPage.cityPostcard);
-      let isCorrectPage = browser.getTitle().includes('Book your hotel now!');
+      let isCorrectPage = browser.getTitle().includes('Забронируйте отель прямо сейчас!');
       let isPriceVisible = searchPage.getLength(searchPage.PriceField) ? 1 : 0;
-
+      
       //page with listed hotels is opened
       expect(isCorrectPage).toBe(true);
       //calendar for specifying arrival date is opened

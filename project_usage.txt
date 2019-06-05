@@ -1,6 +1,24 @@
 1)Run "npm test" command
-2) Run "allure serve allure-results" to see test results
 
+2) We can choose browser for test by commenting parts of wdio.conf.js file:
+
+-if you want to run tests in chrome comment:
+browserName: 'firefox',
+        "moz:firefoxOptions": {
+            prefs: {
+            "intl.accept_languages": "ru"
+            }
+        },
+in capabilities block.
+
+- if you want to run tests in firefox comment:
+browserName: 'chrome'
+in capabilities block.
+
+3) Run "allure serve allure-results" to see test results
+
+4) Navigation in project
 Specifications located in ./test/specs
 Page Objects located in ./test/pageobjects
 Test configuration located in ./wdio.conf.js
+Test results located in ./allure-report

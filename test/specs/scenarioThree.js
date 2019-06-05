@@ -18,23 +18,23 @@ describe('Booking.com case three', () => {
         expect(counterStars+counterUserRate).toEqual(itemsCount)
     })
 
-    it('Each hotel has rating corresponding to chosen',()=>{
-        searchPage.clickOn(searchPage.closeCalendarBtn);
-        searchPage.clickOn(searchPage.confirmDateButton);
-        searchPage.clickOn(searchPage.hotelsQualityRate);
+    // it('Each hotel has rating corresponding to chosen',()=>{
+    //     searchPage.clickOn(searchPage.closeCalendarBtn);
+    //     searchPage.clickOn(searchPage.confirmDateButton);
+    //     searchPage.clickOn(searchPage.hotelsQualityRate);
         
-        let checkRate = searchPage.textOf(searchPage.hotelsQualityRate);
-        checkRate = checkRate.split('');
-        checkRate = checkRate[checkRate.length-2]
-        checkRate = isNaN(checkRate) ? 0 : +checkRate;
+    //     let checkRate = searchPage.textOf(searchPage.hotelsQualityRate);
+    //     checkRate = checkRate.split('');
+    //     checkRate = checkRate[checkRate.length-2]
+    //     checkRate = isNaN(checkRate) ? 0 : +checkRate;
         
-        let hotelsList = searchPage.hotelsQualityList;
-        let counter = 0;
-        for (item of hotelsList){
-        if(+item.getText() <= checkRate) counter++
-        }
+    //     let hotelsList = searchPage.hotelsQualityList;
+    //     let counter = 0;
+    //     for (item of hotelsList){
+    //     if(+item.getText() <= checkRate) counter++
+    //     }
 
-        //each hotel has rating corresponding to chosen
-        expect(counter).toEqual(0);
-    })
+    //     //each hotel has rating corresponding to chosen
+    //     expect(counter).toEqual(0);
+    // })
 })

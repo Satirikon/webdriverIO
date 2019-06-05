@@ -1,12 +1,16 @@
-1) Node.js and npm setup
+1) Open terminal and check java runtime environment with command "java -version"
+If you got output like: "java version "1.8.0_211" you can skip this step, if not -
+install jre from:
+https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html
+
+2) Node.js and npm setup
 npm is distributed with Node.js- which means that when you download Node.js, 
 you automatically get npm installed on your computer.
 Download and install from http://nodejs.org/
 
-2)Open terminal(cmd for windows) and go to the project folder with:
+3)In terminal(cmd for windows) go to the project folder with:
 cd \project_path
 
-3) Run "npm install" command to check dependencies
- Preparation completed
+4) Run "npm install" command to check and install dependencies
 
-4) npm install -g allure-commandline --save-dev
+ Preparations completed
