@@ -1,11 +1,10 @@
 let page = require('./page');
 
-class SearchPage extends page {
+class SearchResultsPage extends page {
     //case 2
     get searchField() {return $('#ss');}
     //case 3
     //it 1
-    get starsRate() {return $("//div[@class='filteroptions']/a[4]");}
     get hotelsWithStars() {return $$('i.bk-icon-wrapper.bk-icon-stars.star_track');}
     get hotelsWithUserRate() {return $$('span.bh-quality-bars');}
     //it 2
@@ -31,6 +30,18 @@ class SearchPage extends page {
     getLength(item){
         return item.length;
     }
+
+    pageTitle(){
+       return browser.getTitle();
+    }
+
+    elementTitle(item){
+       return item.getTitle();
+    }
+
+    variantsOfStarsRateCounter() {
+        return $$("div[id*='filter_class'] a");
+    }
 }
 
-module.exports = new SearchPage;
+module.exports = new SearchResultsPage;

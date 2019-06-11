@@ -3,8 +3,8 @@ let page = require('./page');
 class MainPage extends page {
     //case 1
     get usersCountMenu() { return $('#xp__guests__toggle'); }
-    get usersChildNumber() {return $$('button.bui-stepper__add-button')[1];}
-    get usersChildAssert() {return $$('span.bui-stepper__display')[1];}
+    get usersChildCount() {return $$('button.bui-stepper__add-button')[1];}
+    get usersChildOutput() {return $$('span.bui-stepper__display')[1];}
     //case 2
     get searchField() {return $('#ss');}
     get searchButton() {return $('button.sb-searchbox__button');}
@@ -12,11 +12,14 @@ class MainPage extends page {
     get cityPostcard() {return  $$('div.promotion-postcard__small')[1];}
     
      // case 3 preconditions
-     startFromSearchPage(checkData){
-        this.open('https://booking.com/');
+     startFromSearchResultsPage(checkData){
         this.searchField.setValue(checkData);
         this.searchButton.waitForExist(3000);
         this.clickOn(this.searchButton);
+    }
+
+    clearCookies(){
+        browser.deleteCookies();
     }
 }
 
